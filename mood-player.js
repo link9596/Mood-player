@@ -926,7 +926,7 @@
   opacity: 1;
 }
 
-/* ============ 抽屉动画 ============ */
+/* ============ 抽屉：原版滑出 / 收起 ============ */
 .mcp-drawer-clip {
   position: absolute;
   left: 0;
@@ -1150,6 +1150,8 @@
 .mcp-root-flat .mcp-drawer-bg-wrap {
   display: none;
 }
+
+.mcp-root-flat .mcp-drawer { background: transparent; }
 
 .mcp-root-flat .mcp-drawer-inner {
   padding: 2px 6px 8px;
@@ -1625,7 +1627,7 @@
     var drawerClip    = root.querySelector('.mcp-drawer-clip');
     var drawerInner   = root.querySelector('.mcp-drawer-inner');
 
-    /* ========== 背景 A/B 交叉淡入 ========== */
+    /* ========== 背景 A/B 交叉淡入：卡片 + 抽屉两组共用逻辑 ========== */
     var bgSets = [];
     function registerBgSet(a, b) {
       if (a && b) bgSets.push({ a: a, b: b, front: null });
@@ -1706,7 +1708,7 @@
 
     var shuffleQueue = [];
 
-    /* ============ 平滑滚动 ============ */
+    /* ============ iOS 风格平滑滚动 ============ */
     var smoothScrollRaf = null;
 
     function cancelSmoothScroll() {
